@@ -1,0 +1,8 @@
+
+<html><body><h1>Logs</h1><pre id='logs'></pre>
+<script>
+setInterval(async()=>{
+ let r=await fetch('/logs');let d=await r.json();
+ document.getElementById('logs').innerText=JSON.stringify(d,null,2);
+},2000);
+</script></body></html>
