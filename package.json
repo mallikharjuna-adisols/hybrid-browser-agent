@@ -1,15 +1,21 @@
 {
-  "name": "hybrid-browser-agent-enterprise",
+  "name": "orbit-enterprise-monorepo",
+  "private": true,
   "version": "1.0.0",
+  "description": "Production-ready AI SaaS monorepo with Next.js, Express, Postgres, Playwright workers, MCP bridge, and Docker deployment.",
+  "workspaces": [
+    "apps/*",
+    "workers/*",
+    "packages/*"
+  ],
   "scripts": {
-    "start": "node src/index.js",
-    "mcp": "node src/mcp/server.js",
-    "dashboard": "node dashboard/server.js"
-  },
-  "dependencies": {
-    "playwright": "^1.45.0",
-    "fs-extra": "^11.2.0",
-    "express": "^4.19.2",
-    "axios": "^1.6.8"
+    "dev:web": "npm run dev --workspace @orbit/web",
+    "dev:api": "npm run dev --workspace @orbit/api",
+    "dev:worker": "npm run dev --workspace @orbit/worker-playwright",
+    "build:web": "npm run build --workspace @orbit/web",
+    "start:web": "npm run start --workspace @orbit/web",
+    "start:api": "npm run start --workspace @orbit/api",
+    "start:worker": "npm run start --workspace @orbit/worker-playwright",
+    "lint:web": "npm run lint --workspace @orbit/web"
   }
 }
